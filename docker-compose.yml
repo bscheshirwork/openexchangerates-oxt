@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  php:
+    build:
+      context: ./docker/php-fpm
+    volumes:
+      - ./:/app:rw
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
