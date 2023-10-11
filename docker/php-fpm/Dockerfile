@@ -57,10 +57,12 @@ COPY dphp /usr/bin/dphp
 RUN chmod +x /usr/bin/dphp
 
 #добавление пользователя appuser
+ARG USERNAME=appuser
 ARG UID=1000
 ARG GID=1000
-RUN addgroup -g ${GID} -S appuser && adduser -u ${UID} -S appuser -G appuser
+RUN addgroup -g ${GID} -S ${USERNAME} && adduser -u ${UID} -S ${USERNAME} -G ${USERNAME}
 
+RUN chown ${USERNAME}:${USERNAME} /app /usr/local/bin/composer
 USER ${UID}:${GID}
 
 CMD  ["php-fpm", "-F", "-R", "-O"]

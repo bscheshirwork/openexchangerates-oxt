@@ -3,8 +3,10 @@ services:
   php:
     build:
       args:
-        - UID=1001
-        - GID=1001
+# same to id
+        - UID=1000
+        - GID=1000
+        - USERNAME=oxtuser
         - XDEBUG_PORT=9003
         - PHP_SERVER_NAME=openexchangerates-oxt
 #        - https_proxy=http://proxy.com:3128/
