@@ -11,3 +11,6 @@ services:
         - PHP_SERVER_NAME=openexchangerates-oxt
 #        - https_proxy=http://proxy.com:3128/
 #        - http_proxy=http://proxy.com:3128/
+  webserver:
+    ports:
+      - "8080:80"
